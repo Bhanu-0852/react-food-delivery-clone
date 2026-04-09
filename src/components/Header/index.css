@@ -1,0 +1,194 @@
+/* =========================================
+   GENERAL NAV STYLES
+   ========================================= */
+.nav-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 16px 0px rgba(191, 191, 191, 0.2);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.nav-content {
+  width: 100%;
+  max-width: 1140px;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* =========================================
+   MOBILE BAR (Logo & Hamburger)
+   ========================================= */
+.nav-bar-mobile-logo-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  width: 100%;
+}
+
+.logo-title-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.website-logo {
+  width: 35px;
+  height: 35px;
+}
+
+.header-title {
+  color: #f7931e;
+  font-family: 'DM Sans', sans-serif;
+  font-style: italic;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.nav-mobile-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+/* =========================================
+   MOBILE MENU (The Row Layout) - FIXED
+   ========================================= */
+.mobile-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  width: 100%;
+  padding: 16px 20px; /* Gives the row some height and breathing room */
+  border-top: 1px solid #f1f5f9;
+  animation: slideDown 0.3s ease-out; /* Smooth entrance */
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-menu-list-mobile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.nav-link-mobile {
+  color: #334155;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.active-nav-link {
+  color: #f7931e !important;
+  font-weight: bold;
+}
+
+.logout-mobile-btn {
+  background-color: #f7931e;
+  color: #ffffff;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.close-menu-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #64748b;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* =========================================
+   DESKTOP STYLES (768px and up)
+   ========================================= */
+.nav-bar-large-container {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .nav-bar-mobile-logo-container,
+  .mobile-menu {
+    display: none !important;
+  }
+
+  .nav-bar-large-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+  }
+
+  .logo-title-container-desktop {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+
+  .nav-link {
+    color: #334155;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .nav-link:hover {
+    color: #f7931e;
+  }
+
+  .logout-desktop-btn {
+    background-color: #f7931e;
+    color: #ffffff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 24px;
+    cursor: pointer;
+  }
+}

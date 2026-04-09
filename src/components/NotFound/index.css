@@ -1,0 +1,72 @@
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 80vh; /* Centers content within the available page space */
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+/* The "Wrong Turn" Illustration */
+.not-found-image {
+  width: 250px; /* Base size for mobile */
+  margin-bottom: 32px;
+}
+
+.not-found-heading {
+  color: #1e293b;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.not-found-description {
+  color: #64748b;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  margin-bottom: 24px;
+  line-height: 1.6;
+  max-width: 300px; /* Keeps text readable on small screens */
+}
+
+/* The Signature Orange Button */
+.home-btn {
+  background-color: #f7931e;
+  color: #ffffff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.home-btn:hover {
+  background-color: #e6851b; 
+}
+
+/* Desktop View Adjustments */
+@media screen and (min-width: 768px) {
+  .not-found-image {
+    width: 400px;
+  }
+
+  .not-found-heading {
+    font-size: 32px;
+  }
+
+  .not-found-description {
+    font-size: 18px;
+    max-width: 600px;
+  }
+
+  .home-btn {
+    font-size: 16px;
+    padding: 14px 32px;
+  }
+}

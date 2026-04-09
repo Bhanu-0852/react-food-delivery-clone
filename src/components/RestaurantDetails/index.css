@@ -1,0 +1,149 @@
+.res-details-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.banner-bg {
+  background-color: #334155;
+  background-image: url('https://assets.ccbp.in/frontend/react-js/tasty-kitchens/restaurant-details-banner-bg.png');
+  background-size: cover;
+  padding: 24px 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.banner-content {
+  width: 100%;
+  max-width: 1140px;
+  display: flex;
+  flex-direction: row; 
+  align-items: center;
+  gap: 16px;
+}
+
+.banner-image-wrapper {
+  flex-shrink: 0;
+}
+
+.restaurant-banner-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.restaurant-info-box {
+  display: flex;
+  flex-direction: column;
+  flex: 1; 
+  color: #ffffff;
+}
+
+.res-name {
+  font-size: 20px;
+  margin: 0 0 8px 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+}
+
+.res-cuisine,
+.res-location {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: #cbd5e1;
+  margin: 0 0 4px 0;
+}
+
+.res-availability {
+  font-size: 14px;
+  margin-top: 8px;
+  margin-bottom: 15px;
+  color: #ffcc00; /* Gold warning color */
+  background-color: rgba(255, 204, 0, 0.15);
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ffcc00;
+  align-self: flex-start;
+}
+
+.stats-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.stat-value-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.stat-text {
+  font-weight: bold;
+  margin: 0;
+  font-size: 14px;
+}
+
+.stat-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: #cbd5e1;
+  margin: 0;
+}
+
+.divider-line {
+  width: 1px;
+  height: 35px;
+  background-color: #cbd5e1;
+}
+
+/* --- FOOD LIST --- */
+.food-items-list {
+  width: 90%;
+  max-width: 1140px;
+  margin: 40px auto;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* --- DESKTOP OVERRIDES --- */
+@media screen and (min-width: 768px) {
+  .banner-bg {
+    padding: 40px 20px;
+  }
+
+  .banner-content {
+    gap: 40px;
+  }
+
+  .restaurant-banner-image {
+    width: 400px;
+    height: 250px;
+    border-radius: 12px;
+  }
+
+  .res-name {
+    font-size: 32px;
+  }
+
+  .res-cuisine,
+  .res-location {
+    font-size: 16px;
+  }
+
+  .stat-text {
+    font-size: 16px;
+  }
+
+  .food-items-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+}

@@ -1,0 +1,71 @@
+.restaurants-header-container {
+  display: flex;
+  flex-direction: column; 
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.popular-restaurants-heading {
+  color: #183b56;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.popular-restaurants-description {
+  color: #64748b;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.sort-by-container {
+  display: flex;
+  align-items: center;
+}
+
+.sort-icon {
+  font-size: 24px;
+  color: #475569;
+  margin-right: 8px;
+}
+
+.sort-by-text {
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  color: #475569;
+  font-weight: 500;
+  margin-right: 8px;
+}
+.select-option {
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  color: #475569;
+  font-weight: 500;
+  margin-right: 8px;
+}
+.sort-by-select {
+  border: none;
+  background-color: transparent;
+  color: #475569;
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .restaurants-header-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+
+  .popular-restaurants-heading {
+    font-size: 32px;
+  }
+}

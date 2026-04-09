@@ -1,0 +1,55 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+  background-color: #ffffff;
+  align-items: center;
+  width: 100%;
+}
+
+.carousel-loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+  width: 100%;
+}
+
+.carousel-container {
+  width: 90%;
+  max-width: 1140px;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.offer-image-container {
+  outline: none; 
+}
+
+.offer-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+
+.slick-dots li button:before {
+  color: #f7931e !important;
+  font-size: 10px !important;
+}
+
+/* =========================================
+   DESKTOP STYLES (768px and up)
+   ========================================= */
+@media screen and (min-width: 768px) {
+  .carousel-loader-container {
+    height: 350px;
+  }
+
+  .carousel-container {
+    width: 85%;
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
+}
