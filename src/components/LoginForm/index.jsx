@@ -8,7 +8,8 @@ const LoginForm = () => {
   const [password, setPassword] = useState('')
   const [showSubmitError, setShowSubmitError] = useState(false)
   const [errorMsg, setErrorMsg] = useState('')
-  const [demoBadge, setDemoBadge] = useState(false)   // ← new
+  const [demoBadge, setDemoBadge] = useState(false)
+
   const navigate = useNavigate()
 
   const jwtToken = Cookies.get('jwt_token')
@@ -16,20 +17,22 @@ const LoginForm = () => {
     return <Navigate to="/" replace />
   }
 
-  const fillDemoCredentials = () => {      // ← new
+  const fillDemoCredentials = () => {
     setUsername('rahul')
     setPassword('rahul@2021')
     setDemoBadge(true)
+    setShowSubmitError(false)
+    setErrorMsg('')
   }
 
-  const onSubmitSuccess = jwtToken => {
-    Cookies.set('jwt_token', jwtToken, {expires: 30})
+  const onSubmitSuccess = token => {
+    Cookies.set('jwt_token', token, {expires: 30})
     navigate('/', {replace: true})
   }
 
-  const onSubmitFailure = errorMsg => {
+  const onSubmitFailure = msg => {
     setShowSubmitError(true)
-    setErrorMsg(errorMsg)
+    setErrorMsg(msg)
   }
 
   const submitForm = async event => {
@@ -51,6 +54,7 @@ const LoginForm = () => {
 
   return (
     <div className="login-container">
+      {/* Landing Images */}
       <div className="login-image-container">
         <img
           src="https://res.cloudinary.com/dakquidzb/image/upload/v1775288298/Rectangle_1457login_landing_mobile_img_gmeczt.png"
@@ -64,6 +68,7 @@ const LoginForm = () => {
         />
       </div>
 
+      {/* Login Form */}
       <div className="form-container">
         <form className="login-form" onSubmit={submitForm}>
           <div className="logo-container">
@@ -78,7 +83,9 @@ const LoginForm = () => {
           <h1 className="login-heading">Login</h1>
 
           <div className="input-container">
-            <label className="input-label" htmlFor="username">USERNAME</label>
+            <label className="input-label" htmlFor="username">
+              USERNAME
+            </label>
             <input
               type="text"
               id="username"
@@ -89,7 +96,9 @@ const LoginForm = () => {
           </div>
 
           <div className="input-container">
-            <label className="input-label" htmlFor="password">PASSWORD</label>
+            <label className="input-label" htmlFor="password">
+              PASSWORD
+            </label>
             <input
               type="password"
               id="password"
@@ -99,20 +108,19 @@ const LoginForm = () => {
             />
           </div>
 
-          {showSubmitError && <p className="error-message">{errorMsg}</p>}
+          {showSubmitError && <p className="error-message">*{errorMsg}</p>}
 
-          {/* ↓ Demo credentials button */}
           <button
             type="button"
             className="demo-button"
             onClick={fillDemoCredentials}
           >
-            Use demo credentials
+            Use Demo Credentials
           </button>
 
           {demoBadge && (
             <p className="demo-hint">
-              ✓ Filled — Username: <strong>rahul</strong> · Password: <strong>rahul@2021</strong>
+              ✓ Filled &mdash; Username: <strong>rahul</strong> &nbsp;·&nbsp; Password: <strong>rahul@2021</strong>
             </p>
           )}
 
