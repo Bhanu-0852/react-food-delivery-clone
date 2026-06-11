@@ -8,12 +8,18 @@ const LoginForm = () => {
   const [password, setPassword] = useState('')
   const [showSubmitError, setShowSubmitError] = useState(false)
   const [errorMsg, setErrorMsg] = useState('')
-
+  const [demoBadge, setDemoBadge] = useState(false)   // ← new
   const navigate = useNavigate()
 
   const jwtToken = Cookies.get('jwt_token')
   if (jwtToken !== undefined) {
     return <Navigate to="/" replace />
+  }
+
+  const fillDemoCredentials = () => {      // ← new
+    setUsername('rahul')
+    setPassword('rahul@2021')
+    setDemoBadge(true)
   }
 
   const onSubmitSuccess = jwtToken => {
@@ -30,15 +36,12 @@ const LoginForm = () => {
     event.preventDefault()
     const userDetails = {username, password}
     const url = 'https://apis.ccbp.in/login'
-
     const options = {
       method: 'POST',
       body: JSON.stringify(userDetails),
     }
-
     const response = await fetch(url, options)
     const data = await response.json()
-
     if (response.ok === true) {
       onSubmitSuccess(data.jwt_token)
     } else {
@@ -48,16 +51,12 @@ const LoginForm = () => {
 
   return (
     <div className="login-container">
-      {/* Landing Images - Separated for Mobile and Desktop */}
       <div className="login-image-container">
-        {/* 1. Mobile Image (Visible only on small screens) */}
         <img
           src="https://res.cloudinary.com/dakquidzb/image/upload/v1775288298/Rectangle_1457login_landing_mobile_img_gmeczt.png"
           alt="website login"
           className="login-website-image-mobile"
         />
-
-        {/* 2. Desktop Image (Visible only on large screens) */}
         <img
           src="https://res.cloudinary.com/dakquidzb/image/upload/v1775288304/Rectangle_1456login_landing_desktop_img_pooegp.png"
           alt="website login"
@@ -65,7 +64,6 @@ const LoginForm = () => {
         />
       </div>
 
-      {/* Login Form */}
       <div className="form-container">
         <form className="login-form" onSubmit={submitForm}>
           <div className="logo-container">
@@ -80,9 +78,7 @@ const LoginForm = () => {
           <h1 className="login-heading">Login</h1>
 
           <div className="input-container">
-            <label className="input-label" htmlFor="username">
-              USERNAME
-            </label>
+            <label className="input-label" htmlFor="username">USERNAME</label>
             <input
               type="text"
               id="username"
@@ -93,9 +89,7 @@ const LoginForm = () => {
           </div>
 
           <div className="input-container">
-            <label className="input-label" htmlFor="password">
-              PASSWORD
-            </label>
+            <label className="input-label" htmlFor="password">PASSWORD</label>
             <input
               type="password"
               id="password"
@@ -106,6 +100,21 @@ const LoginForm = () => {
           </div>
 
           {showSubmitError && <p className="error-message">{errorMsg}</p>}
+
+          {/* ↓ Demo credentials button */}
+          <button
+            type="button"
+            className="demo-button"
+            onClick={fillDemoCredentials}
+          >
+            Use demo credentials
+          </button>
+
+          {demoBadge && (
+            <p className="demo-hint">
+              ✓ Filled — Username: <strong>rahul</strong> · Password: <strong>rahul@2021</strong>
+            </p>
+          )}
 
           <button type="submit" className="login-button">
             Login
